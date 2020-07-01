@@ -1,0 +1,44 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main()
+{
+    int t;
+    std::cin >> t;
+    for(int m=0;m<t;m++){
+        int n,k=1;
+        std::queue<int> temp ;
+        int mat[1000][1000];
+        std::cin >> n;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(j==n-1){
+                    if(k>n*n){
+                        int x = temp.front();
+                        std::cout << x << std::endl;
+                        temp.pop();
+                    }else{
+                        std::cout << k << std::endl;
+                    }
+                }else{
+                    if(k>n*n){
+                        int x = temp.front();
+                        std::cout << x << " ";
+                        temp.pop();
+                    }else{
+                        std::cout << k << " ";
+                    }
+                }
+                k++;
+            }
+            
+            if(n%2==0){
+                temp.push(k);
+                k++;
+            }
+        }
+        
+    }
+    return 0;
+}
